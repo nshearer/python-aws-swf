@@ -1,5 +1,7 @@
 
 
+class EventAlreadySeen(Exception): pass
+
 
 class WorkflowInstance:
     '''Encapsulate the state of a running workflow'''

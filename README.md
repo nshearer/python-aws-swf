@@ -78,7 +78,7 @@ allow you to rewrite that code as:
 
     class MyWorkflowDecider(SWFDecider):
     
-        def  on_workflow_start():
+        def on_workflow_start():
             self.start_activity('%s-%i' % ('ActivityA', time.time()),
                'ActivityA', self.version, task_list='a_tasks')
             
