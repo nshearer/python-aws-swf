@@ -2,7 +2,8 @@
 
 def dpath(data, *path, default=None, required=False):
 
-    data = data
+    if data is None:
+        raise ValueError("Passed in None for data")
 
     path_so_far = list()
     for hop in path:

@@ -59,7 +59,7 @@ class Test1DecsionHandler(SWFDecisionHandler):
 
     def after_Task_2(self, wf):
         print("WF data is " + str(wf.data))
-        self.on_workflow_start('Task_3')
+        self.start_activity('Task_3')
 
     def after_Task_3(self, wf):
         self.complete_workflow()

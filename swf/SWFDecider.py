@@ -11,11 +11,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from .SWFDecisionTask import SWFDecisionTask
-from .WorkflowInstance import WorkflowInstanceCollection, EventAlreadySeen
+from .WorkflowInstance import WorkflowInstanceCollection
 from .utils import dpath
 
 class ApiReqeustFailed(Exception): pass
 class CantHandleDecsionTask(Exception): pass
+
+
+# TODO: Get terminology consistant (workflow, task, event, ID, etc.)
+
 
 class SWFDecider:
     '''
@@ -119,16 +123,36 @@ class SWFDecider:
         # Match to workflow instance
         wf_instance = self.__workflow_instances.get(task.workflow_instance)
 
-        # Retrieve any events that are new (and extract WF state data)
-        try:
-            wf_instance.add_events(task.events)
-            while task.next_page_token is not None:
-                task = self._call_poll_for_descision_task_api(task.next_page_token)
-        except EventAlreadySeen:
-            pass # WorkflowInstance sees an event it's already got cached
+        # Retrieve any events that are new
+        new_events = list()
+        for event in self._all_events_for_task(task):
+            if not wf_instance.seen_event(event):
+                new_events.append(event)
+            else:
+                break
+
+        # Collect data and add events to workflow instance data
+        last_event = None
+        for event in sorted(new_events, key=lambda e: e.event_id.event_id):
+            handler.extract_event_data(wf_instance, event, wf_instance.wfdata)
+            if event.event_type_for_decision:
+                last_event = event
 
         # Ask handler what to do
-        handler.handle(task)
+        if last_event is None:
+            raise Exception("No event found to decide on")
+        handler.handle(wf_instance, task, last_event)
+
+
+    def _all_events_for_task(self, task):
+        '''Get all events for the task'''
+        for event in task.events:
+            yield event
+        # Look at other pages
+        while task.next_page_token is not None:
+            task = self._call_poll_for_descision_task_api(task.next_page_token)
+            for event in task.events:
+                yield event
 
 
     MIN_FAILED_WAIT = timedelta(seconds=15)

@@ -21,11 +21,11 @@ class WorkflowID:
 
     def __str__(self):
         return "{wfname}.{wfver} ({wfid})".format(
-            wfname = self.workflow_name,
-            wfver = self.workflow_version,
-            wfid=self.workflow_id)
+            wfname = self.wfname,
+            wfver = self.wfver,
+            wfid=self.wfid)
 
-    def hash(self, wfid):
+    def __hash__(self):
         return hash(str(self))
 
     def __eq__(self, other):

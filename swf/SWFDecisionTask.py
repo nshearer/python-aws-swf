@@ -2,7 +2,7 @@
 
 from .WorkflowID import WokflowExecutionID
 from .utils import dpath
-
+from .SWFEvent import SWFEvent
 
 class SWFDecisionTask:
     '''
@@ -44,3 +44,10 @@ class SWFDecisionTask:
     def next_page_token(self):
         '''If decision has more event in the history, then returns token to retrieve'''
         return dpath(self.data, 'nextPageToken', required=False)
+
+
+    @property
+    def events(self):
+        for event_data in self.data['events']:
+            yield SWFEvent(self.workflow_instance, event_data)
+
