@@ -1,5 +1,5 @@
 
-from .WorkflowID import WokflowExecutionID
+from .SWFWorkflow import WokflowExecutionID
 
 from .utils import dpath
 

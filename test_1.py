@@ -19,19 +19,19 @@ Default Lambda Role:                        None
                           +--------------------------+
 
 ACTIVITY
-Domain:                 python-swf-test
+Domain:                 python-pswf-test
 Activity Type Name:     Task_1
 Activity Type Version:  1
 Task List:              default
 
 ACTIVITY
-Domain:                 python-swf-test
+Domain:                 python-pswf-test
 Activity Type Name:     Task_2
 Activity Type Version:  1
 Task List:              default
 
 ACTIVITY
-Domain:                 python-swf-test
+Domain:                 python-pswf-test
 Activity Type Name:     Task_3
 Activity Type Version:  1
 Task List:              default
@@ -40,10 +40,10 @@ Task List:              default
 
 import logging
 
-from swf import SWFDecisionHandler, SWFDecider
+from pswf import SWFDecisionHandler, SWFDecider
 
 REGION = 'us-west-2'
-DOMAIN = 'python-swf-test'
+DOMAIN = 'python-pswf-test'
 
 WORKFLOW = 'test-1'
 WF_VER = 1

@@ -82,15 +82,15 @@ allow you to rewrite that code as:
             self.start_activity('%s-%i' % ('ActivityA', time.time()),
                'ActivityA', self.version, task_list='a_tasks')
             
-        def after_activity_a(event, result):
+        def after_ActivityA(event, result):
             self.start_activity('%s-%i' % ('ActivityB', time.time()),
                 'ActivityB', self.version, task_list='b_tasks', input=result)
 
-        def after_activity_b(event, result):
+        def after_ActivityB(event, result):
             self.start_activity('%s-%i' % ('ActivityC', time.time()),
                 'ActivityC', self.version, task_list='b_tasks', input=result)
 
-        def after_activity_c(event, result):
+        def after_ActivityC(event, result):
             self.complete_workflow()
 
 

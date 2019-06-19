@@ -57,7 +57,7 @@ class SWFDecider:
         except KeyError:
             raise Exception("Need to set env AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY (can use .env)")
         botoConfig = Config(connect_timeout=50, read_timeout=70)
-        self.__swf = boto3.client('swf', config=botoConfig)
+        self.__swf = boto3.client('pswf', config=botoConfig)
 
         self.__failed_request_wait = None
 
