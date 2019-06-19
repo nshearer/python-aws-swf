@@ -1,0 +1,2 @@
+
+class WorkflowNameAlreadyExists(Exception): pass

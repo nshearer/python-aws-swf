@@ -1,7 +1,11 @@
 import json
 
+from botocore.errorfactory import ClientError
+
 from .SWF import SWF
 from .SWFExecution import SWFExecution
+from .exceptions import WorkflowNameAlreadyExists
+
 
 class SWFWorkflow(SWF):
     '''Handle to represent a workflow'''
@@ -60,7 +64,11 @@ class SWFWorkflow(SWF):
         if data is not None:
             args['input'] = data
 
-        result = self.swf.start_workflow_execution(**args)
+        try:
+            result = self.swf.start_workflow_execution(**args)
+        except ClientError as e:
+            if e.__class__.__name__ == 'WorkflowExecutionAlreadyStartedFault':
+                raise WorkflowNameAlreadyExists(str(e))
 
         return SWFExecution(
             domain = self.domain,
