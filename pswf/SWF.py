@@ -15,3 +15,4 @@ class SWF:
     @property
     def swf(self):
         return self.creds.client('swf')
+

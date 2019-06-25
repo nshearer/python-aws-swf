@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 class EventAlreadySeen(Exception): pass
 
 
-class WorkflowInstance:
+class WorkflowExecution:
     '''Data container for a running instance'''
 
     def __init__(self, exec_id):
@@ -50,7 +50,7 @@ class WorkflowInstance:
 
 
 
-class WorkflowInstanceCollection:
+class WorkflowExecutionCollection:
     '''Collection of workflow instances which manages disk caching'''
 
     MAX_CACHED_WORKFLOW_CNT = 1000
@@ -83,5 +83,5 @@ class WorkflowInstanceCollection:
                 self.__check_expire = datetime.now() + self.CHECK_EXPIRE_EVERY
 
             # Build new entry
-            self.__instances[exec_id] = WorkflowInstance(exec_id)
+            self.__instances[exec_id] = WorkflowExecution(exec_id)
             return self.__instances[exec_id]

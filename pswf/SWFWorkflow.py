@@ -9,16 +9,33 @@ from .exceptions import WorkflowNameAlreadyExists
 
 class SWFWorkflow(SWF):
     '''Handle to represent a workflow'''
-    def __init__(self, domain, name, version=1, creds=None):
+    def __init__(self, domain=None, name=None, version=1, creds=None, copyfrom=None):
         '''
         :param domain: Domain the workflow is in
         :param name: Name to identify the workflow
         :param version: Version of the workflow
+        :param copyfrom: If specified, copy parameters from this SWFWorkflow object
         '''
+
+        if copyfrom is not None:
+            domain = copyfrom.domain
+            name = copyfrom.name
+            version = copyfrom.version
+            creds = copyfrom.creds
+
         super(SWFWorkflow, self).__init__(creds)
+
+        if domain is None:
+            raise Exception("domain is required")
+        if name is None:
+            raise Exception("name is required")
+        if version is None:
+            raise Exception("version is required")
+
         self.domain = domain
         self.name = name
         self.version = version
+
 
     def __str__(self):
         return "{wfname}.{wfver}.{ver}".format(

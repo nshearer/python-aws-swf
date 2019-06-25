@@ -8,10 +8,9 @@ from time import sleep
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
-load_dotenv()
-
+from .SWFWorkflow import SWFWorkflow
 from .SWFDecisionTask import SWFDecisionTask
-from .WorkflowInstance import WorkflowInstanceCollection
+from .WorkflowExecution import WorkflowInstanceCollection
 from .utils import dpath
 
 class ApiReqeustFailed(Exception): pass
@@ -21,35 +20,29 @@ class CantHandleDecsionTask(Exception): pass
 # TODO: Get terminology consistant (workflow, task, event, ID, etc.)
 
 
-class SWFDecider:
+class SWFDecider(SWFWorkflow):
     '''
-    Process that queries the SWF enpoints and applies SWFDecider logic
+    Process that queries the SWF endpoints and applies makes decisions on workflow execution.
 
-    This class is meant to be instantiated, and then gien one or more SWFDecider
-    objects to use to make decisions and direct SWF workflows.  Typical usage is:
-
-    runner = SWFDecider()
-    runner.add(SWFDecisionHandlerA())
-    runner.add(SWFDecisionHandlerB())
-    runner.run_forever()
+    In SWF, a decider process determines what the next steps are in an executing workflow.  This class is intended
+    to be subclassed with methods implemented to respond to workflow events and queue up the next actions to take.
     '''
 
-    def __init__(self, identity, domain, task_list):
+    def __init__(self, identity, task_list):
         '''
         :param identity: String to identify this decider in the workflow history
         :param domain: Name of the domain in SWF to poll for decisions in.
-        :param task_list: Name of the task list to poll for decisions in.
+        :param task_list:
+            Name of the task list to poll for decisions in.
             (one decider per domain + task list)
         '''
 
         self.log = logging.getLogger(__name__)
 
         self.__identity = str(identity)
-        self.__domain = str(domain)
         self.__task_list = str(task_list)
 
-        self.__deciders = list()
-        self.__workflow_instances = WorkflowInstanceCollection()
+        self.__workflow_execution_cache = WorkflowInstanceCollection()
 
         try:
             os.environ['AWS_ACCESS_KEY_ID']

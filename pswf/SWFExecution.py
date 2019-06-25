@@ -18,11 +18,14 @@ class SWFExecution(SWF):
         self.exec_name = exec_name
         self.run_id = run_id
 
+
     def __str__(self):
         return "{wfname}.{wfver}.{ver}[{exec_id}]".format(
             wfname = self.domain,
             wfver = self.wfname,
             ver = str(self.version),
             exec_id = self.exec_id)
+
+
 
 
