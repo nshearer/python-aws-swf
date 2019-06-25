@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 
 from botocore.errorfactory import ClientError
 
+from .SWF import SWF
 from .SWFWorkflowAPI import SWFWorkflowAPI
 from .SWFExecution import SWFExecution
 from .exceptions import WorkflowNameAlreadyExists, WorkflowNameDoesntExist
@@ -109,3 +110,22 @@ class SWFWorkflow(SWFWorkflowAPI):
         else:
             raise Exception("%d results returned when searching for workflow execution '%s'" % (exec_name))
 
+
+    @staticmethod
+    def list_domains(creds, active=True):
+        '''
+        List domains visible to the current user
+
+        :param creds: Credentials to use to access SWF
+        :param active: If True, return active domains, else list deprecated
+        :return: dict
+            See https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Client.list_domains
+        '''
+        if active:
+            args = {'registrationStatus': 'REGISTERED'}
+        else:
+            args = {'registrationStatus': 'DEPRECATED'}
+
+        swf = SWF(creds=creds)
+        for domain in swf._paged_swf_request('list_domains', args, 'domainInfos'):
+            yield domain

@@ -64,22 +64,3 @@ class SWFWorkflowAPI(SWF):
         '''
         for k, v in self._get_workflow_parms():
             request_dict[k] = v
-
-
-    def _paged_swf_request(self, boto_method, request_data, list_attr_name):
-        '''
-        List through a potentially paged set of results
-
-        :param boto_method: boto swf method to call
-        :param request_data: The request details
-        :param list_attr_name: The attribute in the returned data that has the list of items to return
-        :return: Generator yield items returned
-        '''
-
-        while True:
-            results = boto_method(**request_data)
-            for item in results[list_attr_name]:
-                yield item
-            if 'nextPageToken' not in results:
-                return
-            request_data['nextPageToken'] = results['nextPageToken']
