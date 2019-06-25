@@ -118,7 +118,7 @@ class SWFWorkflow(SWFWorkflowAPI):
 
         :param creds: Credentials to use to access SWF
         :param active: If True, return active domains, else list deprecated
-        :return: dict
+        :return: list of dict
             See https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Client.list_domains
         '''
         if active:
@@ -129,3 +129,30 @@ class SWFWorkflow(SWFWorkflowAPI):
         swf = SWF(creds=creds)
         for domain in swf._paged_swf_request('list_domains', args, 'domainInfos'):
             yield domain
+
+
+    @staticmethod
+    def list_workflows(domain, creds, active=True):
+        '''
+        List domains visible to the current user
+
+        :param domain: Name of the domain to look in
+        :param creds: Credentials to use to access SWF
+        :param active: If True, return active workflows, else list deprecated
+        :return:
+        '''
+        if active:
+            args = {'domain': domain, 'registrationStatus': 'REGISTERED'}
+        else:
+            args = {'domain': domain, 'registrationStatus': 'DEPRECATED'}
+
+        swf = SWF(creds=creds)
+        for wfinfo in swf._paged_swf_request('list_workflow_types', args, 'typeInfos'):
+            yield SWFWorkflow(
+                domain = domain,
+                name = wfinfo['workflowType']['name'],
+                version = wfinfo['workflowType']['version'],
+                creds = creds,
+            )
+
+
