@@ -1,40 +1,15 @@
 import json
+from datetime import datetime, timedelta
 
 from botocore.errorfactory import ClientError
 
-from .SWF import SWF
+from .SWFWorkflowAPI import SWFWorkflowAPI
 from .SWFExecution import SWFExecution
-from .exceptions import WorkflowNameAlreadyExists
+from .exceptions import WorkflowNameAlreadyExists, WorkflowNameDoesntExist
 
 
-class SWFWorkflow(SWF):
+class SWFWorkflow(SWFWorkflowAPI):
     '''Handle to represent a workflow'''
-    def __init__(self, domain=None, name=None, version=1, creds=None, copyfrom=None):
-        '''
-        :param domain: Domain the workflow is in
-        :param name: Name to identify the workflow
-        :param version: Version of the workflow
-        :param copyfrom: If specified, copy parameters from this SWFWorkflow object
-        '''
-
-        if copyfrom is not None:
-            domain = copyfrom.domain
-            name = copyfrom.name
-            version = copyfrom.version
-            creds = copyfrom.creds
-
-        super(SWFWorkflow, self).__init__(creds)
-
-        if domain is None:
-            raise Exception("domain is required")
-        if name is None:
-            raise Exception("name is required")
-        if version is None:
-            raise Exception("version is required")
-
-        self.domain = domain
-        self.name = name
-        self.version = version
 
 
     def __str__(self):
@@ -60,13 +35,10 @@ class SWFWorkflow(SWF):
         :return: SWFExecution
         '''
 
+        args = self._get_workflow_parms()
+
         args = {
-            'domain':       self.domain,
             'workflowId':   str(exec_name),
-            'workflowType': {
-                'name': self.name,
-                'version': str(self.version),
-            },
         }
 
         if decision_task_list is not None:
@@ -88,9 +60,52 @@ class SWFWorkflow(SWF):
                 raise WorkflowNameAlreadyExists(str(e))
 
         return SWFExecution(
-            domain = self.domain,
-            wfname = self.name,
-            exec_name = exec_name,
-            run_id = result['runId'],
-            creds = self.creds)
+            copyfrom=self,
+            run_id = result['runId'])
+
+
+    def find_workflow(self, exec_name):
+        """
+        Find a workflow from it's name
+
+        SWF Workflows can have a name specified when executing it, and a SWF generated run_id.
+        There can be only one *running* workflow with a given name at a time.
+
+        This method locates the workflow by it's name given on execution.
+
+        Only returns active executions started in the last year
+
+        :param exec_name: Name given when executing the workflow.
+        :param workflow: SWFWorkflow to look for name in
+        """
+
+        args = {
+            'domain': self.domain,
+        }
+
+        # Filter by exec_name
+        args['executionFilter'] = {
+            'workflowId': exec_name
+        }
+
+        # Have to filter by startTime
+        args['startTimeFilter'] = {
+            'oldestDate': datetime.now() - timedelta(days=365)
+        }
+
+        # Have to filter by workflow name manually since can't specify in filter
+        results = list()
+        for exec_info in self._paged_swf_request(self.swf.list_open_workflow_executions, args, 'executionInfos'):
+            if exec_info['workflowType'] == {'name': self.wfname, 'version': self.version}:
+                results.append(exec_info)
+
+        if len(results) == 1:
+            return SWFExecution(
+                copyfrom=self,
+                run_id = results[0]['execution']['runId'],
+                exec_name = exec_name)
+        elif len(results) == 0:
+            raise WorkflowNameDoesntExist()
+        else:
+            raise Exception("%d results returned when searching for workflow execution '%s'" % (exec_name))
 
