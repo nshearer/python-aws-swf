@@ -23,13 +23,21 @@ class SWFExecution(SWFWorkflowAPI):
 
         # Execution details
         self.run_id = run_id
-        self.exec_name = exec_name
+        self.__exec_name = exec_name
+
+
+    @property
+    def exec_name(self):
+        if self.__exec_name is not None:
+            return self.__exec_name
+        else:
+            raise NotADirectoryError("Need to query SWF to get workflowId")
 
 
     def __str__(self):
-        return "{wfname}.{wfver}.{ver}[{exec_id}]".format(
+        return "{wfname}.{wfver}.{ver}.{exec_name}".format(
             wfname = self.domain,
             wfver = self.wfname,
             ver = str(self.version),
-            exec_id = self.exec_id)
+            exec_name = self.exec_name)
 
