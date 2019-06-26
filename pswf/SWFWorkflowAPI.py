@@ -1,4 +1,5 @@
 import json
+from datetime import datetime, timedelta
 
 from botocore.errorfactory import ClientError
 
@@ -56,6 +57,25 @@ class SWFWorkflowAPI(SWF):
                 'version': str(self.version),
             },
         }
+
+    def _get_workflow_filter_parms(self, include_start_time=True):
+        '''
+        Get typical parameters for filtering to this workflow type
+        :return: dict
+        '''
+        parms = {
+            'domain':       self.domain,
+            'typeFilter': {
+                'name': self.wfname,
+                'version': str(self.version),
+            },
+        }
+
+        if include_start_time:
+            parms['startTimeFilter'] = {'oldestDate': datetime.now() - timedelta(days=365)}
+
+        return parms
+
 
 
     def _add_workflow_parms(self, request_dict):
