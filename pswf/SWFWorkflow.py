@@ -14,9 +14,9 @@ class SWFWorkflow(SWFWorkflowAPI):
 
 
     def __str__(self):
-        return "{wfname}.{wfver}.{ver}".format(
-            wfname = self.domain,
-            wfver = self.name,
+        return "{domain}.{wfname}.{ver}".format(
+            domain = self.domain,
+            wfname = self.wfname,
             ver = str(self.version))
 
 
@@ -155,4 +155,25 @@ class SWFWorkflow(SWFWorkflowAPI):
                 creds = creds,
             )
 
+
+    @property
+    def active_execution_count(self):
+        '''Get a count of active executions'''
+
+        args = self._get_workflow_filter_parms()
+        result = self.swf.count_open_workflow_executions(**args)
+        return int(result['count'])
+
+
+    def list_executions(self):
+        '''Get a list of running workflow executions'''
+
+        args = self._get_workflow_filter_parms()
+
+        for exec_info in self._paged_swf_request('list_open_workflow_executions', args, 'executionInfos'):
+            yield SWFExecution(
+                run_id = exec_info['execution']['runId'],
+                exec_name = exec_info['execution']['workflowId'],
+                copyfrom = self,
+            )
 
