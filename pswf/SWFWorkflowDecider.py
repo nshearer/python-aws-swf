@@ -1,5 +1,7 @@
 
-class SWFDecisionHandler:
+from .SWFWorkflow import SWFWorkflow
+
+class SWFWorkflowDecider(SWFWorkflow):
     '''
     Base class for defining handlers that make the decisions to direct SWF Workflows
     '''
@@ -20,20 +22,6 @@ class SWFDecisionHandler:
         self.last_event = None
 
 
-    def should_handle(self, task):
-        '''
-        Decide if this handler should handle the decision
-
-        :param task: SWFDecisionTask
-        :return: bool
-        '''
-
-        if task.workflow.wfname == self.__workflow_name:
-            if task.workflow.wfver == self.__workflow_ver:
-                return True
-        return False
-
-
     def extract_event_data(self, workflow, event, wfdata):
         '''
         Extract data from workflow events and store to WF instance data
@@ -47,7 +35,7 @@ class SWFDecisionHandler:
         pass
 
 
-    def handle(self, workflow, task, event):
+    def handle(self, execution, events, next_page_token, task_token, decision_event_id):
         '''
         Determine what action the workflow should take
 

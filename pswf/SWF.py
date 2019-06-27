@@ -1,4 +1,5 @@
-
+from datetime import timedelta
+from time import sleep
 
 class SWF:
     '''Provides access to swf service'''
@@ -9,6 +10,11 @@ class SWF:
         TODO: Make creds optional?
         '''
         self.creds = creds
+
+        self.__cooldown_start = timedelta(seconds=30)
+        self.__cooldown_max = timedelta(minutes=15)
+        self.__cooldown_current = None
+
 
 
     @property
@@ -35,3 +41,22 @@ class SWF:
                 return
             request_data['nextPageToken'] = results['nextPageToken']
 
+
+    def cooldown(self):
+        '''Method to trigger a pause to ensure we don't hammer the APIs'''
+
+        # Record when cooldown cycle was started
+        if self.__cooldown_current is None:
+            self.__cooldown_current = self.__cooldown_start
+        else:
+            self.__cooldown_current = self.__cooldown_current * 2
+            if self.__cooldown_current > self.__cooldown_max:
+                self.__cooldown_current = self.__cooldown_max
+
+        # Wait
+        sleep(self.__cooldown_current.total_seconds())
+
+
+    def reset_cooldown(self):
+        '''Resets cooldown timers because a request succeeded'''
+        self.__cooldown_current = None
