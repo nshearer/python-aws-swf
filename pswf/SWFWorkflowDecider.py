@@ -1,7 +1,5 @@
 
-from .SWFWorkflow import SWFWorkflow
-
-class SWFWorkflowDecider(SWFWorkflow):
+class SWFWorkflowDecider:
     '''
     Base class for defining handlers that make the decisions to direct SWF Workflows
     '''
@@ -14,12 +12,24 @@ class SWFWorkflowDecider(SWFWorkflow):
             Version of the workflow to handle decisions for.
             If None, will match any version
         '''
+
         self.__workflow_name = workflow_name
         self.__workflow_ver = str(workflow_version)
 
         self.workflow = None
         self.task = None
         self.last_event = None
+
+        self.decisions = list() # (decision_type, decision_data)
+
+
+    @property
+    def wfname(self):
+        return self.__workflow_name
+
+    @property
+    def wfver(self):
+        return self.__workflow_ver
 
 
     def extract_event_data(self, workflow, event, wfdata):
@@ -35,7 +45,11 @@ class SWFWorkflowDecider(SWFWorkflow):
         pass
 
 
-    def handle(self, execution, events, next_page_token, task_token, decision_event_id):
+    def reset(self):
+        self.decisions = list()
+
+
+    def handle(self, execution, events, decision_event_id, task_token):
         '''
         Determine what action the workflow should take
 

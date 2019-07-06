@@ -1,6 +1,9 @@
 
 import boto3
 
+from botocore.client import Config
+
+
 class AWSCredentials:
 
     def __init__(self, region, aws_key_id, aws_secret):
@@ -24,5 +27,6 @@ class AWSCredentials:
             self.__clients[name] = boto3.client(name,
                 aws_access_key_id = self.__aws_key_id,
                 aws_secret_access_key = self.__aws_secret,
-                region_name = self.__region)
+                region_name = self.__region,
+                config = Config(read_timeout=70))
         return self.__clients[name]

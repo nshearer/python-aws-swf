@@ -22,6 +22,9 @@ class SWF:
         return self.creds.client('swf')
 
 
+    # def _call_swf_with_cooldown
+
+
     def _paged_swf_request(self, boto_method, request_data, list_attr_name):
         '''
         List through a potentially paged set of results

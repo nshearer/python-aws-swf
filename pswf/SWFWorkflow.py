@@ -38,9 +38,7 @@ class SWFWorkflow(SWFWorkflowAPI):
 
         args = self._get_workflow_parms()
 
-        args = {
-            'workflowId':   str(exec_name),
-        }
+        args['workflowId'] = str(exec_name)
 
         if decision_task_list is not None:
             args['taskList'] = {'name': decision_task_list}

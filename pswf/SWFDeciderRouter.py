@@ -15,6 +15,9 @@ class ApiReqeustFailed(Exception): pass
 class CantHandleDecsionTask(Exception): pass
 
 
+class CantHandleDecision(Exception): pass
+
+
 class SWFDeciderRouter(SWF):
     '''
     Process that queries the SWF endpoints and applies makes decisions on workflow execution.
@@ -56,7 +59,7 @@ class SWFDeciderRouter(SWF):
 
         :param decider: SWFWorkflowDecider
         '''
-        key = (decider.wfname, decider.version)
+        key = (decider.wfname, decider.wfver)
         if key in self.__deciders:
             raise KeyError("A decider alread exists for %s.%s" % (decider.wfname, decider.version))
         self.__deciders[key] = decider
@@ -74,59 +77,143 @@ class SWFDeciderRouter(SWF):
     def poll_once(self):
         '''Call the SWF poll_for_decision_task API'''
         task_token = None
+
+        # Get next task
+        task = self._get_next_decsion_task()
+        if task is None:
+            return
+
+        task_token = dpath(task, 'taskToken', default=None)
+        task_desc = "{task_id} ({wf}.{ver})".format(
+            task_id = dpath(task, 'workflowExecution', 'workflowId'),
+            wf = dpath(task, 'workflowType', 'name'),
+            ver = dpath(task, 'workflowType', 'version'),
+        )
+
+        # Pass to handler to continue
         try:
-            api_args = {
-                'domain':       self.domain,
-                'taskList':     {'name': self.task_list},
-                'identity':     self.identity,
-                'reverseOrder': True,
-            }
+            decider = self._select_handler(task)
 
-            # Get next task
-            response = None
-            while response is None:
-                try:
-                    response = self.swf.poll_for_decision_task(**api_args)
-                    self.reset_cooldown()
-                except Exception as e:
-                    self.log.error("Error polling for decision tasks: " + str(e))
-                    self.log.debug('Response: ' + str(response))
-                    response = None
-                    self.cooldown()
-
-            # Skip timeout response
-            if response == dict():
-                return
-
-            # Select handler for this task
-            task_token = dpath(response, 'taskToken')
-            key = (dpath(response, 'workflowType', 'name'), dpath(response, 'workflowType', 'version'))
             try:
-                decider = self.__deciders[key]
-            except KeyError:
-                self._respond_error("No decider registered for %s(%s)" % (key), task_token)
-
-            # Pass to handler to continue
-            try:
+                decider.reset()
                 decider.handle(
                     execution = SWFExecution(
-                        run_id = dpath(response, 'workflowExecution', 'runId'),
-                        exec_name = dpath(response, 'workflowExecution', 'workflowId'),
+                        run_id = dpath(task, 'workflowExecution', 'runId'),
+                        exec_name = dpath(task, 'workflowExecution', 'workflowId'),
                         copyfrom = decider, # Decider subclasses SWFWorkflow, so this works
                     ),
-                    events = parse_event_list(dpath(response, 'events')),
-                    next_page_token = dpath(response, 'nextPageToken', required=False),
-                    task_token = task_token,
-                    decision_event_id = dpath(response, 'startedEventId'),
-                )
+                    events = parse_event_list(self._retrieve_all_events(task)),
+                    decision_event_id = dpath(task, 'startedEventId'),
+                    task_token = task_token)
             except Exception as e:
                 exc_type, exc_value, exc_tb = sys.exc_info()
-                self.__respond_error("Exception in decision handler", task_token,
-                                     detail = ''.join(traceback.format_exception(exc_type, exc_value, exc_tb)))
+                self._respond_error("Exception in decision handler", task_token,
+                                    detail = ''.join(traceback.format_exception(exc_type, exc_value, exc_tb)))
 
-        except Exception as e:
-            if task_token is not None:
-                self._respond_error("Unexpected exception: " + str(e))
+            # Report decisions to SWF
+            while True:
+                try:
+                    decisions = list()
+                    for decision_type, decision_data in decider.decisions:
+                        decision_data_attr = decision_type[0].lower() + decision_type[1:] + 'DecisionAttributes'
+                        decisions.append({
+                            'decisionType': decision_type,
+                            decision_data_attr: decision_data
+                        })
+
+                    response = self.swf.respond_decision_task_completed(
+                        taskToken=task_token,
+                        decisions=decisions,
+                    )
+                    self.reset_cooldown()
+                    return
+
+                except Exception as e:
+                    self.log.error("Failed to record decision failure: " + str(response))
+                    self.cooldown()
+
+        except CantHandleDecision as e:
+            self.log.error("Can't handle decision task %s: %s" % (task_desc, str(e)))
+            self._respond_error(
+                reason = "Can't handle decision",
+                task_token = task_token,
+                detail = str(e)
+            )
+
+
+    def _get_next_decsion_task(self, next_page_token=None):
+        '''Return next decsion task or None'''
+
+        args = {
+            'domain':       self.domain,
+            'taskList':     {'name': self.task_list},
+            'identity':     self.identity,
+            'reverseOrder': True,
+        }
+        if next_page_token is not None:
+            args['nextPageToken'] = next_page_token
+
+        response = None
+        while response is None:
+            try:
+                response = self.swf.poll_for_decision_task(**args)
+                self.reset_cooldown()
+            except Exception as e:
+                self.log.error("Error polling for decision tasks: " + str(e))
+                self.log.debug('Response: ' + str(response))
+                response = None
+                self.cooldown()
+
+        # Skip timeout response
+        if 'taskToken' not in response:
+            return None
+
+        return response
+
+
+    def _select_handler(self, decider_task):
+
+        # Select handler for this task
+        handler_key = (dpath(decider_task, 'workflowType', 'name'), dpath(decider_task, 'workflowType', 'version'))
+        try:
+            return self.__deciders[handler_key]
+        except KeyError:
+            raise CantHandleDecision("No decider registered for %s(%s)" % (handler_key))
+
+
+    def _retrieve_all_events(self, decider_task):
+        '''Get all events to support the decision task'''
+        # TODO: Implement cache
+
+        # Get events provided with decision task
+        for event in dpath(decider_task, 'events', default=list()):
+            yield event
+
+        # Get next pages of events
+        response = decider_task
+        while dpath(response, 'nextPageToken') is not None:
+            next_page_args = self._decision_poll_args()
+            next_page_args['nextPageToken'] = dpath(response, 'nextPageToken')
+            tries = 0
+            try:
+                response = self.swf.poll_for_decision_task(**next_page_args)
+                for event in dpath(decider_task, 'events'):
+                    yield event
+                self.reset_cooldown()
+            except Exception as e:
+                tries += 1
+                self.log.error("Error retrieving next page of events: " + str(e))
+                self.log.debug('Response: ' + str(response))
+
+                self.cooldown()
+
+                if tries >= 3:
+                    self._respond_error(
+                        reason = "Error retrieving next page of events: " + str(e),
+                        task_token = dpath(decider_task, 'taskToken'),
+                        detail = str(e),
+                    )
+                    raise e
 
 
     def _respond_error(self, reason, task_token, detail=None):
@@ -139,7 +226,7 @@ class SWFDeciderRouter(SWF):
                             'decisionType': 'FailWorkflowExecution',
                             'failWorkflowExecutionDecisionAttributes': {
                                 'reason': reason,
-                                'details': detail,
+                                'details': detail or '',
                             }
                         },
                     ],
@@ -147,7 +234,7 @@ class SWFDeciderRouter(SWF):
                 self.reset_cooldown()
                 return
             except Exception as e:
-                self.log.error("Failed to record decision failure: " + str(response))
+                self.log.error("Failed to record decision failure: " + str(e))
                 self.cooldown()
 
 
