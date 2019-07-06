@@ -51,11 +51,13 @@ class SWFWorkflowDecider:
 
     def handle(self, execution, events, decision_event_id, task_token):
         '''
-        Determine what action the workflow should take
+        Determine what activity is next in the workflow
 
-        :param workflow: WorkflowInstance
-        :param task: SWFDecisionTask
-        :param event: (SWFEvent) Last event that occurred in the workflow
+        :param execution: SWFExecution handle
+        :param events: The prior events in the workflow
+        :param decision_event_id:
+        :param task_token:
+        :return:
         '''
 
         self.workflow = workflow
