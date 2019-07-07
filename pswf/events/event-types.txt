@@ -1,0 +1,97 @@
+ref: https://docs.aws.amazon.com/amazonswf/latest/apireference/API_HistoryEvent.html
+
+ActivityTaskCancelRequested - A RequestCancelActivityTask decision was received by the system.
+
+ActivityTaskCanceled - The activity task was successfully canceled.
+
+ActivityTaskCompleted - An activity worker successfully completed an activity task by calling RespondActivityTaskCompleted.
+
+ActivityTaskFailed - An activity worker failed an activity task by calling RespondActivityTaskFailed.
+
+ActivityTaskScheduled - An activity task was scheduled for execution.
+
+ActivityTaskStarted - The scheduled activity task was dispatched to a worker.
+
+ActivityTaskTimedOut - The activity task timed out.
+
+CancelTimerFailed - Failed to process CancelTimer decision. This happens when the decision isn't configured properly, for example no timer exists with the specified timer Id.
+
+CancelWorkflowExecutionFailed - A request to cancel a workflow execution failed.
+
+ChildWorkflowExecutionCanceled - A child workflow execution, started by this workflow execution, was canceled and closed.
+
+ChildWorkflowExecutionCompleted - A child workflow execution, started by this workflow execution, completed successfully and was closed.
+
+ChildWorkflowExecutionFailed - A child workflow execution, started by this workflow execution, failed to complete successfully and was closed.
+
+ChildWorkflowExecutionStarted - A child workflow execution was successfully started.
+
+ChildWorkflowExecutionTerminated - A child workflow execution, started by this workflow execution, was terminated.
+
+ChildWorkflowExecutionTimedOut - A child workflow execution, started by this workflow execution, timed out and was closed.
+
+CompleteWorkflowExecutionFailed - The workflow execution failed to complete.
+
+ContinueAsNewWorkflowExecutionFailed - The workflow execution failed to complete after being continued as a new workflow execution.
+
+DecisionTaskCompleted - The decider successfully completed a decision task by calling RespondDecisionTaskCompleted.
+
+DecisionTaskScheduled - A decision task was scheduled for the workflow execution.
+
+DecisionTaskStarted - The decision task was dispatched to a decider.
+
+DecisionTaskTimedOut - The decision task timed out.
+
+ExternalWorkflowExecutionCancelRequested - Request to cancel an external workflow execution was successfully delivered to the target execution.
+
+ExternalWorkflowExecutionSignaled - A signal, requested by this workflow execution, was successfully delivered to the target external workflow execution.
+
+FailWorkflowExecutionFailed - A request to mark a workflow execution as failed, itself failed.
+
+MarkerRecorded - A marker was recorded in the workflow history as the result of a RecordMarker decision.
+
+RecordMarkerFailed - A RecordMarker decision was returned as failed.
+
+RequestCancelActivityTaskFailed - Failed to process RequestCancelActivityTask decision. This happens when the decision isn't configured properly.
+
+RequestCancelExternalWorkflowExecutionFailed - Request to cancel an external workflow execution failed.
+
+RequestCancelExternalWorkflowExecutionInitiated - A request was made to request the cancellation of an external workflow execution.
+
+ScheduleActivityTaskFailed - Failed to process ScheduleActivityTask decision. This happens when the decision isn't configured properly, for example the activity type specified isn't registered.
+
+SignalExternalWorkflowExecutionFailed - The request to signal an external workflow execution failed.
+
+SignalExternalWorkflowExecutionInitiated - A request to signal an external workflow was made.
+
+StartActivityTaskFailed - A scheduled activity task failed to start.
+
+StartChildWorkflowExecutionFailed - Failed to process StartChildWorkflowExecution decision. This happens when the decision isn't configured properly, for example the workflow type specified isn't registered.
+
+StartChildWorkflowExecutionInitiated - A request was made to start a child workflow execution.
+
+StartTimerFailed - Failed to process StartTimer decision. This happens when the decision isn't configured properly, for example a timer already exists with the specified timer Id.
+
+TimerCanceled - A timer, previously started for this workflow execution, was successfully canceled.
+
+TimerFired - A timer, previously started for this workflow execution, fired.
+
+TimerStarted - A timer was started for the workflow execution due to a StartTimer decision.
+
+WorkflowExecutionCancelRequested - A request to cancel this workflow execution was made.
+
+WorkflowExecutionCanceled - The workflow execution was successfully canceled and closed.
+
+WorkflowExecutionCompleted - The workflow execution was closed due to successful completion.
+
+WorkflowExecutionContinuedAsNew - The workflow execution was closed and a new execution of the same type was created with the same workflowId.
+
+WorkflowExecutionFailed - The workflow execution closed due to a failure.
+
+WorkflowExecutionSignaled - An external signal was received for the workflow execution.
+
+WorkflowExecutionStarted - The workflow execution was started.
+
+WorkflowExecutionTerminated - The workflow execution was terminated.
+
+WorkflowExecutionTimedOut - The workflow execution was closed because a time out was exceeded.
