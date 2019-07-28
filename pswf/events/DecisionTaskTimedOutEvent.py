@@ -21,7 +21,7 @@ class DecisionTaskTimedOutEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('timeoutType')
+        return self._get_string_data_attr('timeoutType')
     
     
     @property
@@ -31,7 +31,7 @@ class DecisionTaskTimedOutEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('scheduledEventId')
+        return self._get_integer_data_attr('scheduledEventId')
     
     
     @property
@@ -41,6 +41,6 @@ class DecisionTaskTimedOutEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('startedEventId')
+        return self._get_integer_data_attr('startedEventId')
     
     

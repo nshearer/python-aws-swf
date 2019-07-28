@@ -47,7 +47,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('activityType')
+        return self._get_dict_data_attr('activityType')
     
     
     @property
@@ -57,7 +57,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('activityId')
+        return self._get_string_data_attr('activityId')
     
     
     @property
@@ -67,7 +67,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('input')
+        return self._get_string_data_attr('input')
     
     
     @property
@@ -77,7 +77,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('control')
+        return self._get_string_data_attr('control')
     
     
     @property
@@ -87,7 +87,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('scheduleToStartTimeout')
+        return self._get_string_data_attr('scheduleToStartTimeout')
     
     
     @property
@@ -97,7 +97,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('scheduleToCloseTimeout')
+        return self._get_string_data_attr('scheduleToCloseTimeout')
     
     
     @property
@@ -107,7 +107,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('startToCloseTimeout')
+        return self._get_string_data_attr('startToCloseTimeout')
     
     
     @property
@@ -120,7 +120,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('taskList')
+        return self._get_dict_data_attr('taskList')
     
     
     @property
@@ -132,7 +132,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskPriority')
+        return self._get_string_data_attr('taskPriority')
     
     
     @property
@@ -142,7 +142,7 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     
     @property
@@ -152,6 +152,6 @@ class ActivityTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('heartbeatTimeout')
+        return self._get_string_data_attr('heartbeatTimeout')
     
     

@@ -334,7 +334,7 @@ if __name__ == '__main__':
                         
                         :return {type}:
                         '''
-                        return self._get_data_attr('{aws_name}')
+                        return self._get_{type}_data_attr('{aws_name}')
                         
                         """).format(
                             py_name=aws_to_py_name(attr['name']),

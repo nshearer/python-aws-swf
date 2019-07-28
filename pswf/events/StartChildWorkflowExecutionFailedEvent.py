@@ -40,7 +40,7 @@ class StartChildWorkflowExecutionFailedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('workflowType')
+        return self._get_dict_data_attr('workflowType')
     
     
     @property
@@ -53,7 +53,7 @@ class StartChildWorkflowExecutionFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('cause')
+        return self._get_string_data_attr('cause')
     
     
     @property
@@ -63,7 +63,7 @@ class StartChildWorkflowExecutionFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('workflowId')
+        return self._get_string_data_attr('workflowId')
     
     
     @property
@@ -74,7 +74,7 @@ class StartChildWorkflowExecutionFailedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('initiatedEventId')
+        return self._get_integer_data_attr('initiatedEventId')
     
     
     @property
@@ -84,7 +84,7 @@ class StartChildWorkflowExecutionFailedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     
     @property
@@ -94,6 +94,6 @@ class StartChildWorkflowExecutionFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('control')
+        return self._get_string_data_attr('control')
     
     

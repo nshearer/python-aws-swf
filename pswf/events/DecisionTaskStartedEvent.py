@@ -20,7 +20,7 @@ class DecisionTaskStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('identity')
+        return self._get_string_data_attr('identity')
     
     
     @property
@@ -30,6 +30,6 @@ class DecisionTaskStartedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('scheduledEventId')
+        return self._get_integer_data_attr('scheduledEventId')
     
     

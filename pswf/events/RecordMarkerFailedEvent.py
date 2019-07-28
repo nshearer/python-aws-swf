@@ -21,7 +21,7 @@ class RecordMarkerFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('markerName')
+        return self._get_string_data_attr('markerName')
     
     
     @property
@@ -34,7 +34,7 @@ class RecordMarkerFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('cause')
+        return self._get_string_data_attr('cause')
     
     
     @property
@@ -44,6 +44,6 @@ class RecordMarkerFailedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     

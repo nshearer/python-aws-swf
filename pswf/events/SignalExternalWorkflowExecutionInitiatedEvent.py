@@ -24,7 +24,7 @@ class SignalExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('workflowId')
+        return self._get_string_data_attr('workflowId')
     
     
     @property
@@ -34,7 +34,7 @@ class SignalExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('runId')
+        return self._get_string_data_attr('runId')
     
     
     @property
@@ -44,7 +44,7 @@ class SignalExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('signalName')
+        return self._get_string_data_attr('signalName')
     
     
     @property
@@ -54,7 +54,7 @@ class SignalExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('input')
+        return self._get_string_data_attr('input')
     
     
     @property
@@ -64,7 +64,7 @@ class SignalExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     
     @property
@@ -74,6 +74,6 @@ class SignalExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('control')
+        return self._get_string_data_attr('control')
     
     

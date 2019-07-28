@@ -22,7 +22,7 @@ class RequestCancelExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('workflowId')
+        return self._get_string_data_attr('workflowId')
     
     
     @property
@@ -32,7 +32,7 @@ class RequestCancelExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('runId')
+        return self._get_string_data_attr('runId')
     
     
     @property
@@ -42,7 +42,7 @@ class RequestCancelExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     
     @property
@@ -52,6 +52,6 @@ class RequestCancelExternalWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('control')
+        return self._get_string_data_attr('control')
     
     

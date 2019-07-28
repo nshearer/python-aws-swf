@@ -22,7 +22,7 @@ class ActivityTaskFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('reason')
+        return self._get_string_data_attr('reason')
     
     
     @property
@@ -32,7 +32,7 @@ class ActivityTaskFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('details')
+        return self._get_string_data_attr('details')
     
     
     @property
@@ -42,7 +42,7 @@ class ActivityTaskFailedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('scheduledEventId')
+        return self._get_integer_data_attr('scheduledEventId')
     
     
     @property
@@ -52,6 +52,6 @@ class ActivityTaskFailedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('startedEventId')
+        return self._get_integer_data_attr('startedEventId')
     
     

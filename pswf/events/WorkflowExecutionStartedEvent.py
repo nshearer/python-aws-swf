@@ -40,7 +40,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('input')
+        return self._get_string_data_attr('input')
     
     
     @property
@@ -51,7 +51,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('executionStartToCloseTimeout')
+        return self._get_string_data_attr('executionStartToCloseTimeout')
     
     
     @property
@@ -62,7 +62,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskStartToCloseTimeout')
+        return self._get_string_data_attr('taskStartToCloseTimeout')
     
     
     @property
@@ -77,7 +77,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('childPolicy')
+        return self._get_string_data_attr('childPolicy')
     
     
     @property
@@ -90,7 +90,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('taskList')
+        return self._get_dict_data_attr('taskList')
     
     
     @property
@@ -100,7 +100,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskPriority')
+        return self._get_string_data_attr('taskPriority')
     
     
     @property
@@ -123,7 +123,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('workflowType')
+        return self._get_dict_data_attr('workflowType')
     
     
     @property
@@ -135,7 +135,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return list:
         '''
-        return self._get_data_attr('tagList')
+        return self._get_list_data_attr('tagList')
     
     
     @property
@@ -145,7 +145,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('continuedExecutionRunId')
+        return self._get_string_data_attr('continuedExecutionRunId')
     
     
     @property
@@ -161,7 +161,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('parentWorkflowExecution')
+        return self._get_dict_data_attr('parentWorkflowExecution')
     
     
     @property
@@ -171,7 +171,7 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('parentInitiatedEventId')
+        return self._get_integer_data_attr('parentInitiatedEventId')
     
     
     @property
@@ -181,6 +181,6 @@ class WorkflowExecutionStartedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('lambdaRole')
+        return self._get_string_data_attr('lambdaRole')
     
     

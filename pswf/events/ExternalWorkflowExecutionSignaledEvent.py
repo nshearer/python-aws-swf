@@ -29,7 +29,7 @@ class ExternalWorkflowExecutionSignaledEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('workflowExecution')
+        return self._get_dict_data_attr('workflowExecution')
     
     
     @property
@@ -39,6 +39,6 @@ class ExternalWorkflowExecutionSignaledEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('initiatedEventId')
+        return self._get_integer_data_attr('initiatedEventId')
     
     

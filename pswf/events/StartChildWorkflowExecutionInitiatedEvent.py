@@ -37,7 +37,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('workflowId')
+        return self._get_string_data_attr('workflowId')
     
     
     @property
@@ -60,7 +60,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('workflowType')
+        return self._get_dict_data_attr('workflowType')
     
     
     @property
@@ -70,7 +70,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('control')
+        return self._get_string_data_attr('control')
     
     
     @property
@@ -80,7 +80,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('input')
+        return self._get_string_data_attr('input')
     
     
     @property
@@ -91,7 +91,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('executionStartToCloseTimeout')
+        return self._get_string_data_attr('executionStartToCloseTimeout')
     
     
     @property
@@ -104,7 +104,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('taskList')
+        return self._get_dict_data_attr('taskList')
     
     
     @property
@@ -115,7 +115,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskPriority')
+        return self._get_string_data_attr('taskPriority')
     
     
     @property
@@ -125,7 +125,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     
     @property
@@ -140,7 +140,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('childPolicy')
+        return self._get_string_data_attr('childPolicy')
     
     
     @property
@@ -151,7 +151,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskStartToCloseTimeout')
+        return self._get_string_data_attr('taskStartToCloseTimeout')
     
     
     @property
@@ -163,7 +163,7 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return list:
         '''
-        return self._get_data_attr('tagList')
+        return self._get_list_data_attr('tagList')
     
     
     @property
@@ -173,6 +173,6 @@ class StartChildWorkflowExecutionInitiatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('lambdaRole')
+        return self._get_string_data_attr('lambdaRole')
     
     

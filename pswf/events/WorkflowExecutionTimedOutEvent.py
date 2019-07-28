@@ -20,7 +20,7 @@ class WorkflowExecutionTimedOutEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('timeoutType')
+        return self._get_string_data_attr('timeoutType')
     
     
     @property
@@ -35,6 +35,6 @@ class WorkflowExecutionTimedOutEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('childPolicy')
+        return self._get_string_data_attr('childPolicy')
     
     

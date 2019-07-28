@@ -20,7 +20,7 @@ class WorkflowExecutionCanceledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('details')
+        return self._get_string_data_attr('details')
     
     
     @property
@@ -30,6 +30,6 @@ class WorkflowExecutionCanceledEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     

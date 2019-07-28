@@ -22,7 +22,7 @@ class WorkflowExecutionTerminatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('reason')
+        return self._get_string_data_attr('reason')
     
     
     @property
@@ -32,7 +32,7 @@ class WorkflowExecutionTerminatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('details')
+        return self._get_string_data_attr('details')
     
     
     @property
@@ -47,7 +47,7 @@ class WorkflowExecutionTerminatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('childPolicy')
+        return self._get_string_data_attr('childPolicy')
     
     
     @property
@@ -57,6 +57,6 @@ class WorkflowExecutionTerminatedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('cause')
+        return self._get_string_data_attr('cause')
     
     

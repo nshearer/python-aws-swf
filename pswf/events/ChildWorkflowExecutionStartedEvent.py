@@ -33,7 +33,7 @@ class ChildWorkflowExecutionStartedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('workflowExecution')
+        return self._get_dict_data_attr('workflowExecution')
     
     
     @property
@@ -56,7 +56,7 @@ class ChildWorkflowExecutionStartedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('workflowType')
+        return self._get_dict_data_attr('workflowType')
     
     
     @property
@@ -66,6 +66,6 @@ class ChildWorkflowExecutionStartedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('initiatedEventId')
+        return self._get_integer_data_attr('initiatedEventId')
     
     

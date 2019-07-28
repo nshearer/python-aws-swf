@@ -25,7 +25,7 @@ class WorkflowExecutionSignaledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('signalName')
+        return self._get_string_data_attr('signalName')
     
     
     @property
@@ -35,7 +35,7 @@ class WorkflowExecutionSignaledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('input')
+        return self._get_string_data_attr('input')
     
     
     @property
@@ -51,7 +51,7 @@ class WorkflowExecutionSignaledEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('externalWorkflowExecution')
+        return self._get_dict_data_attr('externalWorkflowExecution')
     
     
     @property
@@ -61,6 +61,6 @@ class WorkflowExecutionSignaledEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('externalInitiatedEventId')
+        return self._get_integer_data_attr('externalInitiatedEventId')
     
     

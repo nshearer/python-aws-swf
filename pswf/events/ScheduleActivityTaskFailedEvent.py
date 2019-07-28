@@ -38,7 +38,7 @@ class ScheduleActivityTaskFailedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('activityType')
+        return self._get_dict_data_attr('activityType')
     
     
     @property
@@ -48,7 +48,7 @@ class ScheduleActivityTaskFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('activityId')
+        return self._get_string_data_attr('activityId')
     
     
     @property
@@ -61,7 +61,7 @@ class ScheduleActivityTaskFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('cause')
+        return self._get_string_data_attr('cause')
     
     
     @property
@@ -71,6 +71,6 @@ class ScheduleActivityTaskFailedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     

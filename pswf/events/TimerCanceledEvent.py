@@ -21,7 +21,7 @@ class TimerCanceledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('timerId')
+        return self._get_string_data_attr('timerId')
     
     
     @property
@@ -31,7 +31,7 @@ class TimerCanceledEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('startedEventId')
+        return self._get_integer_data_attr('startedEventId')
     
     
     @property
@@ -41,6 +41,6 @@ class TimerCanceledEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     

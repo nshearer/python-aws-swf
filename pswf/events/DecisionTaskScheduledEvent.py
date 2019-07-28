@@ -26,7 +26,7 @@ class DecisionTaskScheduledEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('taskList')
+        return self._get_dict_data_attr('taskList')
     
     
     @property
@@ -37,7 +37,7 @@ class DecisionTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskPriority')
+        return self._get_string_data_attr('taskPriority')
     
     
     @property
@@ -48,6 +48,6 @@ class DecisionTaskScheduledEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('startToCloseTimeout')
+        return self._get_string_data_attr('startToCloseTimeout')
     
     

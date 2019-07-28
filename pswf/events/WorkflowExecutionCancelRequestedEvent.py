@@ -30,7 +30,7 @@ class WorkflowExecutionCancelRequestedEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('externalWorkflowExecution')
+        return self._get_dict_data_attr('externalWorkflowExecution')
     
     
     @property
@@ -40,7 +40,7 @@ class WorkflowExecutionCancelRequestedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('externalInitiatedEventId')
+        return self._get_integer_data_attr('externalInitiatedEventId')
     
     
     @property
@@ -50,6 +50,6 @@ class WorkflowExecutionCancelRequestedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('cause')
+        return self._get_string_data_attr('cause')
     
     

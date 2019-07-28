@@ -22,7 +22,7 @@ class ActivityTaskTimedOutEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('timeoutType')
+        return self._get_string_data_attr('timeoutType')
     
     
     @property
@@ -32,7 +32,7 @@ class ActivityTaskTimedOutEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('scheduledEventId')
+        return self._get_integer_data_attr('scheduledEventId')
     
     
     @property
@@ -42,7 +42,7 @@ class ActivityTaskTimedOutEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('startedEventId')
+        return self._get_integer_data_attr('startedEventId')
     
     
     @property
@@ -52,6 +52,6 @@ class ActivityTaskTimedOutEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('details')
+        return self._get_string_data_attr('details')
     
     

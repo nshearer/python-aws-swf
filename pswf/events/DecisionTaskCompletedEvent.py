@@ -21,7 +21,7 @@ class DecisionTaskCompletedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('executionContext')
+        return self._get_string_data_attr('executionContext')
     
     
     @property
@@ -31,7 +31,7 @@ class DecisionTaskCompletedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('scheduledEventId')
+        return self._get_integer_data_attr('scheduledEventId')
     
     
     @property
@@ -41,6 +41,6 @@ class DecisionTaskCompletedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('startedEventId')
+        return self._get_integer_data_attr('startedEventId')
     
     

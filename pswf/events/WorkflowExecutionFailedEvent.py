@@ -21,7 +21,7 @@ class WorkflowExecutionFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('reason')
+        return self._get_string_data_attr('reason')
     
     
     @property
@@ -31,7 +31,7 @@ class WorkflowExecutionFailedEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('details')
+        return self._get_string_data_attr('details')
     
     
     @property
@@ -41,6 +41,6 @@ class WorkflowExecutionFailedEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     

@@ -36,7 +36,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('input')
+        return self._get_string_data_attr('input')
     
     
     @property
@@ -46,7 +46,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return integer:
         '''
-        return self._get_data_attr('decisionTaskCompletedEventId')
+        return self._get_integer_data_attr('decisionTaskCompletedEventId')
     
     
     @property
@@ -56,7 +56,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('newExecutionRunId')
+        return self._get_string_data_attr('newExecutionRunId')
     
     
     @property
@@ -67,7 +67,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('executionStartToCloseTimeout')
+        return self._get_string_data_attr('executionStartToCloseTimeout')
     
     
     @property
@@ -80,7 +80,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('taskList')
+        return self._get_dict_data_attr('taskList')
     
     
     @property
@@ -90,7 +90,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskPriority')
+        return self._get_string_data_attr('taskPriority')
     
     
     @property
@@ -101,7 +101,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('taskStartToCloseTimeout')
+        return self._get_string_data_attr('taskStartToCloseTimeout')
     
     
     @property
@@ -116,7 +116,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('childPolicy')
+        return self._get_string_data_attr('childPolicy')
     
     
     @property
@@ -128,7 +128,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return list:
         '''
-        return self._get_data_attr('tagList')
+        return self._get_list_data_attr('tagList')
     
     
     @property
@@ -151,7 +151,7 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return dict:
         '''
-        return self._get_data_attr('workflowType')
+        return self._get_dict_data_attr('workflowType')
     
     
     @property
@@ -161,6 +161,6 @@ class WorkflowExecutionContinuedAsNewEvent(SWFEvent):
     
         :return string:
         '''
-        return self._get_data_attr('lambdaRole')
+        return self._get_string_data_attr('lambdaRole')
     
     
