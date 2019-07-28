@@ -1,0 +1,431 @@
+<pre><span></span><span class="p">{</span>
+    <span class="s1">'taskToken'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+    <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+        <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+    <span class="p">},</span>
+    <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+        <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+    <span class="p">},</span>
+    <span class="s1">'events'</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">'eventTimestamp'</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">'eventType'</span><span class="p">:</span> <span class="s1">'WorkflowExecutionStarted'</span><span class="o">|</span><span class="s1">'WorkflowExecutionCancelRequested'</span><span class="o">|</span><span class="s1">'WorkflowExecutionCompleted'</span><span class="o">|</span><span class="s1">'CompleteWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'WorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'FailWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'WorkflowExecutionTimedOut'</span><span class="o">|</span><span class="s1">'WorkflowExecutionCanceled'</span><span class="o">|</span><span class="s1">'CancelWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'WorkflowExecutionContinuedAsNew'</span><span class="o">|</span><span class="s1">'ContinueAsNewWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'WorkflowExecutionTerminated'</span><span class="o">|</span><span class="s1">'DecisionTaskScheduled'</span><span class="o">|</span><span class="s1">'DecisionTaskStarted'</span><span class="o">|</span><span class="s1">'DecisionTaskCompleted'</span><span class="o">|</span><span class="s1">'DecisionTaskTimedOut'</span><span class="o">|</span><span class="s1">'ActivityTaskScheduled'</span><span class="o">|</span><span class="s1">'ScheduleActivityTaskFailed'</span><span class="o">|</span><span class="s1">'ActivityTaskStarted'</span><span class="o">|</span><span class="s1">'ActivityTaskCompleted'</span><span class="o">|</span><span class="s1">'ActivityTaskFailed'</span><span class="o">|</span><span class="s1">'ActivityTaskTimedOut'</span><span class="o">|</span><span class="s1">'ActivityTaskCanceled'</span><span class="o">|</span><span class="s1">'ActivityTaskCancelRequested'</span><span class="o">|</span><span class="s1">'RequestCancelActivityTaskFailed'</span><span class="o">|</span><span class="s1">'WorkflowExecutionSignaled'</span><span class="o">|</span><span class="s1">'MarkerRecorded'</span><span class="o">|</span><span class="s1">'RecordMarkerFailed'</span><span class="o">|</span><span class="s1">'TimerStarted'</span><span class="o">|</span><span class="s1">'StartTimerFailed'</span><span class="o">|</span><span class="s1">'TimerFired'</span><span class="o">|</span><span class="s1">'TimerCanceled'</span><span class="o">|</span><span class="s1">'CancelTimerFailed'</span><span class="o">|</span><span class="s1">'StartChildWorkflowExecutionInitiated'</span><span class="o">|</span><span class="s1">'StartChildWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'ChildWorkflowExecutionStarted'</span><span class="o">|</span><span class="s1">'ChildWorkflowExecutionCompleted'</span><span class="o">|</span><span class="s1">'ChildWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'ChildWorkflowExecutionTimedOut'</span><span class="o">|</span><span class="s1">'ChildWorkflowExecutionCanceled'</span><span class="o">|</span><span class="s1">'ChildWorkflowExecutionTerminated'</span><span class="o">|</span><span class="s1">'SignalExternalWorkflowExecutionInitiated'</span><span class="o">|</span><span class="s1">'SignalExternalWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'ExternalWorkflowExecutionSignaled'</span><span class="o">|</span><span class="s1">'RequestCancelExternalWorkflowExecutionInitiated'</span><span class="o">|</span><span class="s1">'RequestCancelExternalWorkflowExecutionFailed'</span><span class="o">|</span><span class="s1">'ExternalWorkflowExecutionCancelRequested'</span><span class="o">|</span><span class="s1">'LambdaFunctionScheduled'</span><span class="o">|</span><span class="s1">'LambdaFunctionStarted'</span><span class="o">|</span><span class="s1">'LambdaFunctionCompleted'</span><span class="o">|</span><span class="s1">'LambdaFunctionFailed'</span><span class="o">|</span><span class="s1">'LambdaFunctionTimedOut'</span><span class="o">|</span><span class="s1">'ScheduleLambdaFunctionFailed'</span><span class="o">|</span><span class="s1">'StartLambdaFunctionFailed'</span><span class="p">,</span>
+            <span class="s1">'eventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s1">'workflowExecutionStartedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'input'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'executionStartToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'taskStartToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'childPolicy'</span><span class="p">:</span> <span class="s1">'TERMINATE'</span><span class="o">|</span><span class="s1">'REQUEST_CANCEL'</span><span class="o">|</span><span class="s1">'ABANDON'</span><span class="p">,</span>
+                <span class="s1">'taskList'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'taskPriority'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'tagList'</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s1">'string'</span><span class="p">,</span>
+                <span class="p">],</span>
+                <span class="s1">'continuedExecutionRunId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'parentWorkflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'parentInitiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'lambdaRole'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionCompletedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'result'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'completeWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'UNHANDLED_DECISION'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'reason'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'failWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'UNHANDLED_DECISION'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionTimedOutEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timeoutType'</span><span class="p">:</span> <span class="s1">'START_TO_CLOSE'</span><span class="p">,</span>
+                <span class="s1">'childPolicy'</span><span class="p">:</span> <span class="s1">'TERMINATE'</span><span class="o">|</span><span class="s1">'REQUEST_CANCEL'</span><span class="o">|</span><span class="s1">'ABANDON'</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionCanceledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'cancelWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'UNHANDLED_DECISION'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionContinuedAsNewEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'input'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'newExecutionRunId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'executionStartToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'taskList'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'taskPriority'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'taskStartToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'childPolicy'</span><span class="p">:</span> <span class="s1">'TERMINATE'</span><span class="o">|</span><span class="s1">'REQUEST_CANCEL'</span><span class="o">|</span><span class="s1">'ABANDON'</span><span class="p">,</span>
+                <span class="s1">'tagList'</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s1">'string'</span><span class="p">,</span>
+                <span class="p">],</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'lambdaRole'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'continueAsNewWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'UNHANDLED_DECISION'</span><span class="o">|</span><span class="s1">'WORKFLOW_TYPE_DEPRECATED'</span><span class="o">|</span><span class="s1">'WORKFLOW_TYPE_DOES_NOT_EXIST'</span><span class="o">|</span><span class="s1">'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_TASK_LIST_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_CHILD_POLICY_UNDEFINED'</span><span class="o">|</span><span class="s1">'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionTerminatedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'reason'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'childPolicy'</span><span class="p">:</span> <span class="s1">'TERMINATE'</span><span class="o">|</span><span class="s1">'REQUEST_CANCEL'</span><span class="o">|</span><span class="s1">'ABANDON'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'CHILD_POLICY_APPLIED'</span><span class="o">|</span><span class="s1">'EVENT_LIMIT_EXCEEDED'</span><span class="o">|</span><span class="s1">'OPERATOR_INITIATED'</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionCancelRequestedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'externalWorkflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'externalInitiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'CHILD_POLICY_APPLIED'</span>
+            <span class="p">},</span>
+            <span class="s1">'decisionTaskScheduledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'taskList'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'taskPriority'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'startToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'decisionTaskStartedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'identity'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'decisionTaskCompletedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'executionContext'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'decisionTaskTimedOutEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timeoutType'</span><span class="p">:</span> <span class="s1">'START_TO_CLOSE'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'activityTaskScheduledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'activityType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'activityId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'input'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduleToStartTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduleToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'startToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'taskList'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'taskPriority'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'heartbeatTimeout'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'activityTaskStartedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'identity'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'activityTaskCompletedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'result'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'activityTaskFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'reason'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'activityTaskTimedOutEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timeoutType'</span><span class="p">:</span> <span class="s1">'START_TO_CLOSE'</span><span class="o">|</span><span class="s1">'SCHEDULE_TO_START'</span><span class="o">|</span><span class="s1">'SCHEDULE_TO_CLOSE'</span><span class="o">|</span><span class="s1">'HEARTBEAT'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'activityTaskCanceledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'latestCancelRequestedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'activityTaskCancelRequestedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'activityId'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'workflowExecutionSignaledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'signalName'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'input'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'externalWorkflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'externalInitiatedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'markerRecordedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'markerName'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'recordMarkerFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'markerName'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'timerStartedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timerId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'startToFireTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'timerFiredEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timerId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'timerCanceledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timerId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'startChildWorkflowExecutionInitiatedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'input'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'executionStartToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'taskList'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'taskPriority'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'childPolicy'</span><span class="p">:</span> <span class="s1">'TERMINATE'</span><span class="o">|</span><span class="s1">'REQUEST_CANCEL'</span><span class="o">|</span><span class="s1">'ABANDON'</span><span class="p">,</span>
+                <span class="s1">'taskStartToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'tagList'</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s1">'string'</span><span class="p">,</span>
+                <span class="p">],</span>
+                <span class="s1">'lambdaRole'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'childWorkflowExecutionStartedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'childWorkflowExecutionCompletedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'result'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'childWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'reason'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'childWorkflowExecutionTimedOutEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'timeoutType'</span><span class="p">:</span> <span class="s1">'START_TO_CLOSE'</span><span class="p">,</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'childWorkflowExecutionCanceledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'childWorkflowExecutionTerminatedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'signalExternalWorkflowExecutionInitiatedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'signalName'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'input'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'externalWorkflowExecutionSignaledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'signalExternalWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'</span><span class="o">|</span><span class="s1">'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'externalWorkflowExecutionCancelRequestedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowExecution'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'requestCancelExternalWorkflowExecutionInitiatedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'requestCancelExternalWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'runId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'</span><span class="o">|</span><span class="s1">'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'scheduleActivityTaskFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'activityType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'activityId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'ACTIVITY_TYPE_DEPRECATED'</span><span class="o">|</span><span class="s1">'ACTIVITY_TYPE_DOES_NOT_EXIST'</span><span class="o">|</span><span class="s1">'ACTIVITY_ID_ALREADY_IN_USE'</span><span class="o">|</span><span class="s1">'OPEN_ACTIVITIES_LIMIT_EXCEEDED'</span><span class="o">|</span><span class="s1">'ACTIVITY_CREATION_RATE_EXCEEDED'</span><span class="o">|</span><span class="s1">'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_TASK_LIST_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'requestCancelActivityTaskFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'activityId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'ACTIVITY_ID_UNKNOWN'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'startTimerFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timerId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'TIMER_ID_ALREADY_IN_USE'</span><span class="o">|</span><span class="s1">'OPEN_TIMERS_LIMIT_EXCEEDED'</span><span class="o">|</span><span class="s1">'TIMER_CREATION_RATE_EXCEEDED'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'cancelTimerFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'timerId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'TIMER_ID_UNKNOWN'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'startChildWorkflowExecutionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'workflowType'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'string'</span>
+                <span class="p">},</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'WORKFLOW_TYPE_DOES_NOT_EXIST'</span><span class="o">|</span><span class="s1">'WORKFLOW_TYPE_DEPRECATED'</span><span class="o">|</span><span class="s1">'OPEN_CHILDREN_LIMIT_EXCEEDED'</span><span class="o">|</span><span class="s1">'OPEN_WORKFLOWS_LIMIT_EXCEEDED'</span><span class="o">|</span><span class="s1">'CHILD_CREATION_RATE_EXCEEDED'</span><span class="o">|</span><span class="s1">'WORKFLOW_ALREADY_RUNNING'</span><span class="o">|</span><span class="s1">'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_TASK_LIST_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'</span><span class="o">|</span><span class="s1">'DEFAULT_CHILD_POLICY_UNDEFINED'</span><span class="o">|</span><span class="s1">'OPERATION_NOT_PERMITTED'</span><span class="p">,</span>
+                <span class="s1">'workflowId'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'initiatedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'lambdaFunctionScheduledEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'id'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'control'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'input'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'startToCloseTimeout'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'lambdaFunctionStartedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'lambdaFunctionCompletedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'result'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'lambdaFunctionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'reason'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'details'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">},</span>
+            <span class="s1">'lambdaFunctionTimedOutEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'startedEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'timeoutType'</span><span class="p">:</span> <span class="s1">'START_TO_CLOSE'</span>
+            <span class="p">},</span>
+            <span class="s1">'scheduleLambdaFunctionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'id'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'ID_ALREADY_IN_USE'</span><span class="o">|</span><span class="s1">'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED'</span><span class="o">|</span><span class="s1">'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED'</span><span class="o">|</span><span class="s1">'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION'</span><span class="p">,</span>
+                <span class="s1">'decisionTaskCompletedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
+            <span class="s1">'startLambdaFunctionFailedEventAttributes'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">'scheduledEventId'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">'cause'</span><span class="p">:</span> <span class="s1">'ASSUME_ROLE_FAILED'</span><span class="p">,</span>
+                <span class="s1">'message'</span><span class="p">:</span> <span class="s1">'string'</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s1">'nextPageToken'</span><span class="p">:</span> <span class="s1">'string'</span><span class="p">,</span>
+    <span class="s1">'previousStartedEventId'</span><span class="p">:</span> <span class="mi">123</span>
+<span class="p">}</span>
+</pre>

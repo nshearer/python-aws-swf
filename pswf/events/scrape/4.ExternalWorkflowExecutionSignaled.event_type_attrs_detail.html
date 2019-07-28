@@ -1,0 +1,19 @@
+<li><p class="first"><strong>externalWorkflowExecutionSignaledEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">ExternalWorkflowExecutionSignaled</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>workflowExecution</strong> <em>(dict) --</em></p>
+<p>The external workflow execution that the signal was delivered to.</p>
+<ul>
+<li><p class="first"><strong>workflowId</strong> <em>(string) --</em></p>
+<p>The user defined identifier associated with the workflow execution.</p>
+</li>
+<li><p class="first"><strong>runId</strong> <em>(string) --</em></p>
+<p>A system-generated unique identifier for the workflow execution.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>initiatedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">SignalExternalWorkflowExecutionInitiated</span></tt> event corresponding to the <tt class="docutils literal"><span class="pre">SignalExternalWorkflowExecution</span></tt> decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+</ul>
+</li>

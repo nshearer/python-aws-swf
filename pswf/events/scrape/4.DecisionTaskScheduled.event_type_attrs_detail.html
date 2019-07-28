@@ -1,0 +1,21 @@
+<li><p class="first"><strong>decisionTaskScheduledEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">DecisionTaskScheduled</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>taskList</strong> <em>(dict) --</em></p>
+<p>The name of the task list in which the decision task was scheduled.</p>
+<ul>
+<li><p class="first"><strong>name</strong> <em>(string) --</em></p>
+<p>The name of the task list.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>taskPriority</strong> <em>(string) --</em></p>
+<p>A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java's <tt class="docutils literal"><span class="pre">Integer.MIN_VALUE</span></tt> (-2147483648) to <tt class="docutils literal"><span class="pre">Integer.MAX_VALUE</span></tt> (2147483647). Higher numbers indicate higher priority.</p>
+<p>For more information about setting task priority, see <a class="reference external" href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <em>Amazon SWF Developer Guide</em> .</p>
+</li>
+<li><p class="first"><strong>startToCloseTimeout</strong> <em>(string) --</em></p>
+<p>The maximum duration for this decision task. The task is considered timed out if it doesn't completed within this duration.</p>
+<p>The duration is specified in seconds, an integer greater than or equal to <tt class="docutils literal"><span class="pre">0</span></tt> . You can use <tt class="docutils literal"><span class="pre">NONE</span></tt> to specify unlimited duration.</p>
+</li>
+</ul>
+</li>

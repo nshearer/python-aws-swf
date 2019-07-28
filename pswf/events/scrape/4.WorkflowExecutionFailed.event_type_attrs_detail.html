@@ -1,0 +1,14 @@
+<li><p class="first"><strong>workflowExecutionFailedEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">WorkflowExecutionFailed</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>reason</strong> <em>(string) --</em></p>
+<p>The descriptive reason provided for the failure.</p>
+</li>
+<li><p class="first"><strong>details</strong> <em>(string) --</em></p>
+<p>The details of the failure.</p>
+</li>
+<li><p class="first"><strong>decisionTaskCompletedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">DecisionTaskCompleted</span></tt> event corresponding to the decision task that resulted in the <tt class="docutils literal"><span class="pre">FailWorkflowExecution</span></tt> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+</ul>
+</li>

@@ -1,0 +1,74 @@
+<li><p class="first"><strong>startChildWorkflowExecutionInitiatedEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">StartChildWorkflowExecutionInitiated</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>workflowId</strong> <em>(string) --</em></p>
+<p>The <tt class="docutils literal"><span class="pre">workflowId</span></tt> of the child workflow execution.</p>
+</li>
+<li><p class="first"><strong>workflowType</strong> <em>(dict) --</em></p>
+<p>The type of the child workflow execution.</p>
+<ul>
+<li><p class="first"><strong>name</strong> <em>(string) --</em></p>
+<p>The name of the workflow type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The combination of workflow type name and version must be unique with in a domain.</p>
+</div>
+</li>
+<li><p class="first"><strong>version</strong> <em>(string) --</em></p>
+<p>The version of the workflow type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The combination of workflow type name and version must be unique with in a domain.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>control</strong> <em>(string) --</em></p>
+<p>Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.</p>
+</li>
+<li><p class="first"><strong>input</strong> <em>(string) --</em></p>
+<p>The inputs provided to the child workflow execution.</p>
+</li>
+<li><p class="first"><strong>executionStartToCloseTimeout</strong> <em>(string) --</em></p>
+<p>The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.</p>
+<p>The duration is specified in seconds, an integer greater than or equal to <tt class="docutils literal"><span class="pre">0</span></tt> . You can use <tt class="docutils literal"><span class="pre">NONE</span></tt> to specify unlimited duration.</p>
+</li>
+<li><p class="first"><strong>taskList</strong> <em>(dict) --</em></p>
+<p>The name of the task list used for the decision tasks of the child workflow execution.</p>
+<ul>
+<li><p class="first"><strong>name</strong> <em>(string) --</em></p>
+<p>The name of the task list.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>taskPriority</strong> <em>(string) --</em></p>
+<p>The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's <tt class="docutils literal"><span class="pre">Integer.MIN_VALUE</span></tt> (-2147483648) to <tt class="docutils literal"><span class="pre">Integer.MAX_VALUE</span></tt> (2147483647). Higher numbers indicate higher priority.</p>
+<p>For more information about setting task priority, see <a class="reference external" href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <em>Amazon SWF Developer Guide</em> .</p>
+</li>
+<li><p class="first"><strong>decisionTaskCompletedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">DecisionTaskCompleted</span></tt> event corresponding to the decision task that resulted in the <tt class="docutils literal"><span class="pre">StartChildWorkflowExecution</span></tt>   Decision to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.</p>
+</li>
+<li><p class="first"><strong>childPolicy</strong> <em>(string) --</em></p>
+<p>The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the  TerminateWorkflowExecution action or due to an expired timeout.</p>
+<p>The supported child policies are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">TERMINATE</span></tt> – The child executions are terminated.</li>
+<li><tt class="docutils literal"><span class="pre">REQUEST_CANCEL</span></tt> – A request to cancel is attempted for each child execution by recording a <tt class="docutils literal"><span class="pre">WorkflowExecutionCancelRequested</span></tt> event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</li>
+<li><tt class="docutils literal"><span class="pre">ABANDON</span></tt> – No action is taken. The child executions continue to run.</li>
+</ul>
+</li>
+<li><p class="first"><strong>taskStartToCloseTimeout</strong> <em>(string) --</em></p>
+<p>The maximum duration allowed for the decision tasks for this workflow execution.</p>
+<p>The duration is specified in seconds, an integer greater than or equal to <tt class="docutils literal"><span class="pre">0</span></tt> . You can use <tt class="docutils literal"><span class="pre">NONE</span></tt> to specify unlimited duration.</p>
+</li>
+<li><p class="first"><strong>tagList</strong> <em>(list) --</em></p>
+<p>The list of tags to associated with the child workflow execution.</p>
+<ul class="simple">
+<li><em>(string) --</em></li>
+</ul>
+</li>
+<li><p class="first"><strong>lambdaRole</strong> <em>(string) --</em></p>
+<p>The IAM role to attach to the child workflow execution.</p>
+</li>
+</ul>
+</li>

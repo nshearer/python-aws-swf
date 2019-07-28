@@ -1,0 +1,14 @@
+<li><p class="first"><strong>timerCanceledEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">TimerCanceled</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>timerId</strong> <em>(string) --</em></p>
+<p>The unique ID of the timer that was canceled.</p>
+</li>
+<li><p class="first"><strong>startedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">TimerStarted</span></tt> event that was recorded when this timer was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+<li><p class="first"><strong>decisionTaskCompletedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">DecisionTaskCompleted</span></tt> event corresponding to the decision task that resulted in the <tt class="docutils literal"><span class="pre">CancelTimer</span></tt> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+</ul>
+</li>

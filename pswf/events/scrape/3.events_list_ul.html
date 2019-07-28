@@ -1,0 +1,50 @@
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ActivityTaskCancelRequested</span></tt> – A <tt class="docutils literal"><span class="pre">RequestCancelActivityTask</span></tt> decision was received by the system.</li>
+<li><tt class="docutils literal"><span class="pre">ActivityTaskCanceled</span></tt> – The activity task was successfully canceled.</li>
+<li><tt class="docutils literal"><span class="pre">ActivityTaskCompleted</span></tt> – An activity worker successfully completed an activity task by calling  RespondActivityTaskCompleted .</li>
+<li><tt class="docutils literal"><span class="pre">ActivityTaskFailed</span></tt> – An activity worker failed an activity task by calling  RespondActivityTaskFailed .</li>
+<li><tt class="docutils literal"><span class="pre">ActivityTaskScheduled</span></tt> – An activity task was scheduled for execution.</li>
+<li><tt class="docutils literal"><span class="pre">ActivityTaskStarted</span></tt> – The scheduled activity task was dispatched to a worker.</li>
+<li><tt class="docutils literal"><span class="pre">ActivityTaskTimedOut</span></tt> – The activity task timed out.</li>
+<li><tt class="docutils literal"><span class="pre">CancelTimerFailed</span></tt> – Failed to process CancelTimer decision. This happens when the decision isn't configured properly, for example no timer exists with the specified timer Id.</li>
+<li><tt class="docutils literal"><span class="pre">CancelWorkflowExecutionFailed</span></tt> – A request to cancel a workflow execution failed.</li>
+<li><tt class="docutils literal"><span class="pre">ChildWorkflowExecutionCanceled</span></tt> – A child workflow execution, started by this workflow execution, was canceled and closed.</li>
+<li><tt class="docutils literal"><span class="pre">ChildWorkflowExecutionCompleted</span></tt> – A child workflow execution, started by this workflow execution, completed successfully and was closed.</li>
+<li><tt class="docutils literal"><span class="pre">ChildWorkflowExecutionFailed</span></tt> – A child workflow execution, started by this workflow execution, failed to complete successfully and was closed.</li>
+<li><tt class="docutils literal"><span class="pre">ChildWorkflowExecutionStarted</span></tt> – A child workflow execution was successfully started.</li>
+<li><tt class="docutils literal"><span class="pre">ChildWorkflowExecutionTerminated</span></tt> – A child workflow execution, started by this workflow execution, was terminated.</li>
+<li><tt class="docutils literal"><span class="pre">ChildWorkflowExecutionTimedOut</span></tt> – A child workflow execution, started by this workflow execution, timed out and was closed.</li>
+<li><tt class="docutils literal"><span class="pre">CompleteWorkflowExecutionFailed</span></tt> – The workflow execution failed to complete.</li>
+<li><tt class="docutils literal"><span class="pre">ContinueAsNewWorkflowExecutionFailed</span></tt> – The workflow execution failed to complete after being continued as a new workflow execution.</li>
+<li><tt class="docutils literal"><span class="pre">DecisionTaskCompleted</span></tt> – The decider successfully completed a decision task by calling  RespondDecisionTaskCompleted .</li>
+<li><tt class="docutils literal"><span class="pre">DecisionTaskScheduled</span></tt> – A decision task was scheduled for the workflow execution.</li>
+<li><tt class="docutils literal"><span class="pre">DecisionTaskStarted</span></tt> – The decision task was dispatched to a decider.</li>
+<li><tt class="docutils literal"><span class="pre">DecisionTaskTimedOut</span></tt> – The decision task timed out.</li>
+<li><tt class="docutils literal"><span class="pre">ExternalWorkflowExecutionCancelRequested</span></tt> – Request to cancel an external workflow execution was successfully delivered to the target execution.</li>
+<li><tt class="docutils literal"><span class="pre">ExternalWorkflowExecutionSignaled</span></tt> – A signal, requested by this workflow execution, was successfully delivered to the target external workflow execution.</li>
+<li><tt class="docutils literal"><span class="pre">FailWorkflowExecutionFailed</span></tt> – A request to mark a workflow execution as failed, itself failed.</li>
+<li><tt class="docutils literal"><span class="pre">MarkerRecorded</span></tt> – A marker was recorded in the workflow history as the result of a <tt class="docutils literal"><span class="pre">RecordMarker</span></tt> decision.</li>
+<li><tt class="docutils literal"><span class="pre">RecordMarkerFailed</span></tt> – A <tt class="docutils literal"><span class="pre">RecordMarker</span></tt> decision was returned as failed.</li>
+<li><tt class="docutils literal"><span class="pre">RequestCancelActivityTaskFailed</span></tt> – Failed to process RequestCancelActivityTask decision. This happens when the decision isn't configured properly.</li>
+<li><tt class="docutils literal"><span class="pre">RequestCancelExternalWorkflowExecutionFailed</span></tt> – Request to cancel an external workflow execution failed.</li>
+<li><tt class="docutils literal"><span class="pre">RequestCancelExternalWorkflowExecutionInitiated</span></tt> – A request was made to request the cancellation of an external workflow execution.</li>
+<li><tt class="docutils literal"><span class="pre">ScheduleActivityTaskFailed</span></tt> – Failed to process ScheduleActivityTask decision. This happens when the decision isn't configured properly, for example the activity type specified isn't registered.</li>
+<li><tt class="docutils literal"><span class="pre">SignalExternalWorkflowExecutionFailed</span></tt> – The request to signal an external workflow execution failed.</li>
+<li><tt class="docutils literal"><span class="pre">SignalExternalWorkflowExecutionInitiated</span></tt> – A request to signal an external workflow was made.</li>
+<li><tt class="docutils literal"><span class="pre">StartActivityTaskFailed</span></tt> – A scheduled activity task failed to start.</li>
+<li><tt class="docutils literal"><span class="pre">StartChildWorkflowExecutionFailed</span></tt> – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn't configured properly, for example the workflow type specified isn't registered.</li>
+<li><tt class="docutils literal"><span class="pre">StartChildWorkflowExecutionInitiated</span></tt> – A request was made to start a child workflow execution.</li>
+<li><tt class="docutils literal"><span class="pre">StartTimerFailed</span></tt> – Failed to process StartTimer decision. This happens when the decision isn't configured properly, for example a timer already exists with the specified timer Id.</li>
+<li><tt class="docutils literal"><span class="pre">TimerCanceled</span></tt> – A timer, previously started for this workflow execution, was successfully canceled.</li>
+<li><tt class="docutils literal"><span class="pre">TimerFired</span></tt> – A timer, previously started for this workflow execution, fired.</li>
+<li><tt class="docutils literal"><span class="pre">TimerStarted</span></tt> – A timer was started for the workflow execution due to a <tt class="docutils literal"><span class="pre">StartTimer</span></tt> decision.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionCancelRequested</span></tt> – A request to cancel this workflow execution was made.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionCanceled</span></tt> – The workflow execution was successfully canceled and closed.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionCompleted</span></tt> – The workflow execution was closed due to successful completion.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionContinuedAsNew</span></tt> – The workflow execution was closed and a new execution of the same type was created with the same workflowId.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionFailed</span></tt> – The workflow execution closed due to a failure.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionSignaled</span></tt> – An external signal was received for the workflow execution.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionStarted</span></tt> – The workflow execution was started.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionTerminated</span></tt> – The workflow execution was terminated.</li>
+<li><tt class="docutils literal"><span class="pre">WorkflowExecutionTimedOut</span></tt> – The workflow execution was closed because a time out was exceeded.</li>
+</ul>

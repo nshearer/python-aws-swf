@@ -1,0 +1,11 @@
+<li><p class="first"><strong>workflowExecutionCompletedEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">WorkflowExecutionCompleted</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>result</strong> <em>(string) --</em></p>
+<p>The result produced by the workflow execution upon successful completion.</p>
+</li>
+<li><p class="first"><strong>decisionTaskCompletedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">DecisionTaskCompleted</span></tt> event corresponding to the decision task that resulted in the <tt class="docutils literal"><span class="pre">CompleteWorkflowExecution</span></tt> decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+</ul>
+</li>

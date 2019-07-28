@@ -1,3 +1,4 @@
+# coding=utf-8
 from .SWFEvent import SWFEvent
 
 class ExternalWorkflowExecutionSignaledEvent(SWFEvent):
@@ -15,4 +16,29 @@ class ExternalWorkflowExecutionSignaledEvent(SWFEvent):
 
     
 
+    @property
+    def workflow_execution(self):
+        '''
+        The external workflow execution that the signal was delivered to.
+    
+        workflowId (string) --
+        The user defined identifier associated with the workflow execution.
+    
+        runId (string) --
+        A system-generated unique identifier for the workflow execution.
+    
+        :return dict:
+        '''
+        return self._get_data_attr('workflowExecution')
+    
+    
+    @property
+    def initiated_event_id(self):
+        '''
+        The ID of the SignalExternalWorkflowExecutionInitiated event corresponding to the SignalExternalWorkflowExecution decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    
+        :return integer:
+        '''
+        return self._get_data_attr('initiatedEventId')
+    
     

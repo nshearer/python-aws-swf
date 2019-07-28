@@ -1,0 +1,81 @@
+<li><p class="first"><strong>workflowExecutionStartedEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">WorkflowExecutionStarted</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>input</strong> <em>(string) --</em></p>
+<p>The input provided to the workflow execution.</p>
+</li>
+<li><p class="first"><strong>executionStartToCloseTimeout</strong> <em>(string) --</em></p>
+<p>The maximum duration for this workflow execution.</p>
+<p>The duration is specified in seconds, an integer greater than or equal to <tt class="docutils literal"><span class="pre">0</span></tt> . You can use <tt class="docutils literal"><span class="pre">NONE</span></tt> to specify unlimited duration.</p>
+</li>
+<li><p class="first"><strong>taskStartToCloseTimeout</strong> <em>(string) --</em></p>
+<p>The maximum duration of decision tasks for this workflow type.</p>
+<p>The duration is specified in seconds, an integer greater than or equal to <tt class="docutils literal"><span class="pre">0</span></tt> . You can use <tt class="docutils literal"><span class="pre">NONE</span></tt> to specify unlimited duration.</p>
+</li>
+<li><p class="first"><strong>childPolicy</strong> <em>(string) --</em></p>
+<p>The policy to use for the child workflow executions if this workflow execution is terminated, by calling the  TerminateWorkflowExecution action explicitly or due to an expired timeout.</p>
+<p>The supported child policies are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">TERMINATE</span></tt> – The child executions are terminated.</li>
+<li><tt class="docutils literal"><span class="pre">REQUEST_CANCEL</span></tt> – A request to cancel is attempted for each child execution by recording a <tt class="docutils literal"><span class="pre">WorkflowExecutionCancelRequested</span></tt> event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</li>
+<li><tt class="docutils literal"><span class="pre">ABANDON</span></tt> – No action is taken. The child executions continue to run.</li>
+</ul>
+</li>
+<li><p class="first"><strong>taskList</strong> <em>(dict) --</em></p>
+<p>The name of the task list for scheduling the decision tasks for this workflow execution.</p>
+<ul>
+<li><p class="first"><strong>name</strong> <em>(string) --</em></p>
+<p>The name of the task list.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>taskPriority</strong> <em>(string) --</em></p>
+<p>The priority of the decision tasks in the workflow execution.</p>
+</li>
+<li><p class="first"><strong>workflowType</strong> <em>(dict) --</em></p>
+<p>The workflow type of this execution.</p>
+<ul>
+<li><p class="first"><strong>name</strong> <em>(string) --</em></p>
+<p>The name of the workflow type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The combination of workflow type name and version must be unique with in a domain.</p>
+</div>
+</li>
+<li><p class="first"><strong>version</strong> <em>(string) --</em></p>
+<p>The version of the workflow type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The combination of workflow type name and version must be unique with in a domain.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>tagList</strong> <em>(list) --</em></p>
+<p>The list of tags associated with this workflow execution. An execution can have up to 5 tags.</p>
+<ul class="simple">
+<li><em>(string) --</em></li>
+</ul>
+</li>
+<li><p class="first"><strong>continuedExecutionRunId</strong> <em>(string) --</em></p>
+<p>If this workflow execution was started due to a <tt class="docutils literal"><span class="pre">ContinueAsNewWorkflowExecution</span></tt> decision, then it contains the <tt class="docutils literal"><span class="pre">runId</span></tt> of the previous workflow execution that was closed and continued as this execution.</p>
+</li>
+<li><p class="first"><strong>parentWorkflowExecution</strong> <em>(dict) --</em></p>
+<p>The source workflow execution that started this workflow execution. The member isn't set if the workflow execution was not started by a workflow.</p>
+<ul>
+<li><p class="first"><strong>workflowId</strong> <em>(string) --</em></p>
+<p>The user defined identifier associated with the workflow execution.</p>
+</li>
+<li><p class="first"><strong>runId</strong> <em>(string) --</em></p>
+<p>A system-generated unique identifier for the workflow execution.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>parentInitiatedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">StartChildWorkflowExecutionInitiated</span></tt> event corresponding to the <tt class="docutils literal"><span class="pre">StartChildWorkflowExecution</span></tt>   Decision to start this workflow execution. The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+<li><p class="first"><strong>lambdaRole</strong> <em>(string) --</em></p>
+<p>The IAM role attached to the workflow execution.</p>
+</li>
+</ul>
+</li>

@@ -1,0 +1,11 @@
+<li><p class="first"><strong>activityTaskStartedEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">ActivityTaskStarted</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>identity</strong> <em>(string) --</em></p>
+<p>Identity of the worker that was assigned this task. This aids diagnostics when problems arise. The form of this identity is user defined.</p>
+</li>
+<li><p class="first"><strong>scheduledEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">ActivityTaskScheduled</span></tt> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+</ul>
+</li>

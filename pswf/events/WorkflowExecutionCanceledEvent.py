@@ -1,3 +1,4 @@
+# coding=utf-8
 from .SWFEvent import SWFEvent
 
 class WorkflowExecutionCanceledEvent(SWFEvent):
@@ -14,5 +15,21 @@ class WorkflowExecutionCanceledEvent(SWFEvent):
 
     @property
     def details(self):
+        '''
+        The details of the cancellation.
+    
+        :return string:
+        '''
         return self._get_data_attr('details')
+    
+    
+    @property
+    def decision_task_completed_event_id(self):
+        '''
+        The ID of the DecisionTaskCompleted event corresponding to the decision task that resulted in the CancelWorkflowExecution decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    
+        :return integer:
+        '''
+        return self._get_data_attr('decisionTaskCompletedEventId')
+    
     

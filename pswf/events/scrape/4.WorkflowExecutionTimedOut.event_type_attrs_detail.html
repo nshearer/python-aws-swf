@@ -1,0 +1,17 @@
+<li><p class="first"><strong>workflowExecutionTimedOutEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">WorkflowExecutionTimedOut</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>timeoutType</strong> <em>(string) --</em></p>
+<p>The type of timeout that caused this event.</p>
+</li>
+<li><p class="first"><strong>childPolicy</strong> <em>(string) --</em></p>
+<p>The policy used for the child workflow executions of this workflow execution.</p>
+<p>The supported child policies are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">TERMINATE</span></tt> – The child executions are terminated.</li>
+<li><tt class="docutils literal"><span class="pre">REQUEST_CANCEL</span></tt> – A request to cancel is attempted for each child execution by recording a <tt class="docutils literal"><span class="pre">WorkflowExecutionCancelRequested</span></tt> event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</li>
+<li><tt class="docutils literal"><span class="pre">ABANDON</span></tt> – No action is taken. The child executions continue to run.</li>
+</ul>
+</li>
+</ul>
+</li>

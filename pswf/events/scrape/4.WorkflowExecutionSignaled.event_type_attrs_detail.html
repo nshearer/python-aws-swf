@@ -1,0 +1,25 @@
+<li><p class="first"><strong>workflowExecutionSignaledEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">WorkflowExecutionSignaled</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>signalName</strong> <em>(string) --</em></p>
+<p>The name of the signal received. The decider can use the signal name and inputs to determine how to the process the signal.</p>
+</li>
+<li><p class="first"><strong>input</strong> <em>(string) --</em></p>
+<p>The inputs provided with the signal. The decider can use the signal name and inputs to determine how to process the signal.</p>
+</li>
+<li><p class="first"><strong>externalWorkflowExecution</strong> <em>(dict) --</em></p>
+<p>The workflow execution that sent the signal. This is set only of the signal was sent by another workflow execution.</p>
+<ul>
+<li><p class="first"><strong>workflowId</strong> <em>(string) --</em></p>
+<p>The user defined identifier associated with the workflow execution.</p>
+</li>
+<li><p class="first"><strong>runId</strong> <em>(string) --</em></p>
+<p>A system-generated unique identifier for the workflow execution.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>externalInitiatedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">SignalExternalWorkflowExecutionInitiated</span></tt> event corresponding to the <tt class="docutils literal"><span class="pre">SignalExternalWorkflow</span></tt> decision to signal this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event. This field is set only if the signal was initiated by another workflow execution.</p>
+</li>
+</ul>
+</li>

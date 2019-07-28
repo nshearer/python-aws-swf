@@ -1,0 +1,18 @@
+<li><p class="first"><strong>timerStartedEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">TimerStarted</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>timerId</strong> <em>(string) --</em></p>
+<p>The unique ID of the timer that was started.</p>
+</li>
+<li><p class="first"><strong>control</strong> <em>(string) --</em></p>
+<p>Data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
+</li>
+<li><p class="first"><strong>startToFireTimeout</strong> <em>(string) --</em></p>
+<p>The duration of time after which the timer fires.</p>
+<p>The duration is specified in seconds, an integer greater than or equal to <tt class="docutils literal"><span class="pre">0</span></tt> .</p>
+</li>
+<li><p class="first"><strong>decisionTaskCompletedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">DecisionTaskCompleted</span></tt> event corresponding to the decision task that resulted in the <tt class="docutils literal"><span class="pre">StartTimer</span></tt> decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+</ul>
+</li>

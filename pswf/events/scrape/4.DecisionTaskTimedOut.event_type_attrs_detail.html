@@ -1,0 +1,14 @@
+<li><p class="first"><strong>decisionTaskTimedOutEventAttributes</strong> <em>(dict) --</em></p>
+<p>If the event is of type <tt class="docutils literal"><span class="pre">DecisionTaskTimedOut</span></tt> then this member is set and provides detailed information about the event. It isn't set for other event types.</p>
+<ul>
+<li><p class="first"><strong>timeoutType</strong> <em>(string) --</em></p>
+<p>The type of timeout that expired before the decision task could be completed.</p>
+</li>
+<li><p class="first"><strong>scheduledEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">DecisionTaskScheduled</span></tt> event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+<li><p class="first"><strong>startedEventId</strong> <em>(integer) --</em></p>
+<p>The ID of the <tt class="docutils literal"><span class="pre">DecisionTaskStarted</span></tt> event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+</li>
+</ul>
+</li>
